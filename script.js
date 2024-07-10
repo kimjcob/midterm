@@ -42,7 +42,7 @@ function generateUI(movieData, categoryID) {
     const output = document.getElementById(categoryID);
     
         output.innerHTML = movieData.map(movie => ` 
-            <div class="overflow-y-scroll min-w-[210px] max-h-[320px] border p-2">
+            <div class="overflow-y-scroll min-w-[210px] max-h-[370px] border p-2 scrollbar-hide">
             <img src="${movie.poster}" alt="${movie.title}" style="width:200px;">
             <p>${movie.title} (${movie.release_date})</p>
             <p>${movie.genre_ids.join(', ')}</p>

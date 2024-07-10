@@ -6,9 +6,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js"></script>
     <title>midterm</title>
+    <style>        
+      .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    </style>
 </head>
 <body>
-    <nav class="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full">
+    <nav class="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full sticky top-0 z-50">
         <div class="mb-2 sm:mb-0">
           <a href="#" class="text-2xl no-underline text-grey-darkest hover:text-blue-dark">Home</a>
         </div>
