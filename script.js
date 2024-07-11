@@ -12,6 +12,27 @@ async function category() {
     movies(upcoming_URL, 'Upcoming')
 
         }
+// async function genre(genreID) {
+//     const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en-US';
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             accept: 'application/json',
+//             Authorization: `Bearer ${API_TOKEN}`
+//         }
+//     };
+//     try {
+//         const response = await fetch(url, options);
+//         const data = await response.json();
+//         const genreData = data.genres.map(genre => ({
+//             id: genre.id,
+//             name: genre.name
+//         }));
+//         genreID(genreData);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 async function movies(url, categoryID) {
 
