@@ -10,29 +10,7 @@ async function category() {
     movies(popoular_URL, 'Popular')
     movies(topRated_URL, 'Toprated')
     movies(upcoming_URL, 'Upcoming')
-
         }
-// async function genre(genreID) {
-//     const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en-US';
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             accept: 'application/json',
-//             Authorization: `Bearer ${API_TOKEN}`
-//         }
-//     };
-//     try {
-//         const response = await fetch(url, options);
-//         const data = await response.json();
-//         const genreData = data.genres.map(genre => ({
-//             id: genre.id,
-//             name: genre.name
-//         }));
-//         genreID(genreData);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
 
 async function movies(url, categoryID) {
 
@@ -50,7 +28,7 @@ async function movies(url, categoryID) {
             poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
             title: movie.title,
             release_date: movie.release_date,
-            genre_ids: movie.genre_ids,
+            genre_ids: movie.genre_ids.map(id => genre_name(id)),
             description: movie.overview
         }));
 
@@ -70,4 +48,28 @@ function generateUI(movieData, categoryID) {
             <p>${movie.description}</p>
         </div>`).join('');
 
+}
+function genre_name(genreID) {
+    switch(genreID) {
+        case 28: return 'Action';
+        case 12: return 'Adventure';
+        case 16: return 'Animation';
+        case 35: return 'Comedy';
+        case 80: return 'Crime';
+        case 99: return 'Documentary';
+        case 18: return 'Drama';
+        case 10751: return 'Family';
+        case 14: return 'Fantasy';
+        case 36: return 'History';
+        case 27: return 'Horror';
+        case 10402: return 'Music';
+        case 9648: return 'Mystery';
+        case 10749: return 'Romance';
+        case 878: return 'Science Fiction';
+        case 10770: return 'TV Movie';
+        case 53: return 'Thriller';
+        case 10752: return 'War';
+        case 37: return 'Western';
+        default: return 'Unknown';
+    }
 }
